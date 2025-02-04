@@ -54,6 +54,7 @@ For each configuration, we trained the network for a fixed number of epochs (e.g
 #### Custom CNN Results on CIFAR‑10
 
 |Activation|Initialization|Optimizer|Train Acc (%)|Val Acc (%)|Train Loss|Val Loss|
+|--------|--------|--------|--------|--------|--------|--------|
 |ReLU|Kaiming|Adam|88.5|85.2|0.35|0.47|
 |ReLU|Kaiming|SGD|87.0|83.0|0.40|0.52|
 |ReLU|Xavier|Adam|87.8|84.0|0.38|0.50|
