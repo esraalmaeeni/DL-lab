@@ -1,7 +1,4 @@
-# TITLE: MNIST Dataset Processing with NumPy
-
-## Overview
-This Jupyter Notebook provides a streamlined approach to loading, processing, and visualizing the MNIST dataset using NumPy and Matplotlib. The dataset consists of handwritten digit images (0-9) and corresponding labels. This implementation enables efficient loading and normalization of the dataset for further machine learning tasks.
+# TITLE: Neural Networks implementation using MNIST Dataset with NumPy
 
 ## Abstract
 The objective of this lab is to provide a streamlined approach to loading, processing, and visualizing the MNIST dataset using NumPy. 
