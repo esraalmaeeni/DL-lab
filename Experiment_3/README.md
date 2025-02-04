@@ -63,32 +63,33 @@ For each configuration, we trained the network for a fixed number of epochs (e.g
 |Leaky ReLU|Random|SGD|84.5|81.0|0.45|0.60|
 
 
-Custom CNN Results on Cats vs. Dogs
+#### Custom CNN Results on Cats vs. Dogs
 | Activation  | Initialization | Optimizer | Train Acc (%) | Val Acc (%) | Train Loss | Val Loss |
 |------------|---------------|-----------|--------------|------------|-----------|---------|
 | ReLU       | Kaiming       | Adam      | 90.0        | 87.0   | 0.30      | 0.42    |
 | ReLU       | Xavier        | SGD       | 88.5        | 85.5       | 0.35      | 0.48    |
 | Tanh       | Xavier        | Adam      | 87.0        | 83.0       | 0.38      | 0.52    |
 | Leaky ReLU | Random        | RMSprop   | 86.5        | 82.0       | 0.40      | 0.55    |
-![image](https://github.com/user-attachments/assets/814115b3-75ae-4a99-b43f-25ec2f812d40)
 
-Fine‑Tuned ResNet‑18 Results
-![image](https://github.com/user-attachments/assets/ac40a649-1409-4c2d-b437-c205cdf32467)
+#### Fine‑Tuned ResNet‑18 Results
+| Dataset       | Model      | Train Acc (%) | Val Acc (%) | Train Loss | Val Loss |
+|--------------|-----------|--------------|------------|-----------|---------|
+| CIFAR-10     | ResNet-18 | 90.0         | 88.0   | 0.28      | 0.39    |
+| Cats vs. Dogs| ResNet-18 | 92.0         | 89.5   | 0.25      | 0.35    |
 
 
 
 ## 6. Conclusion
 **Custom CNN:**
+1. The experiments indicate that the combination of ReLU activation, Kaiming initialization, and the Adam optimizer consistently produced the best results on both datasets.
+   
+2. ReLU combined with Kaiming initialization is well suited since Kaiming is designed to work optimally with ReLU activations, leading to faster convergence and better generalization.
 
-The experiments indicate that the combination of ReLU activation, Kaiming initialization, and the Adam optimizer consistently produced the best results on both datasets.
-ReLU combined with Kaiming initialization is well suited since Kaiming is designed to work optimally with ReLU activations, leading to faster convergence and better generalization.
-
-**ResNet‑18 vs. Custom CNN:**
-
-The fine‑tuned ResNet‑18 model outperformed the custom CNN on both datasets (CIFAR‑10: 88.0% vs. 85.2% and Cats vs. Dogs: 89.5% vs. 87.0%).
+ **ResNet‑18 vs. Custom CNN:**
+3. The fine‑tuned ResNet‑18 model outperformed the custom CNN on both datasets (CIFAR‑10: 88.0% vs. 85.2% and Cats vs. Dogs: 89.5% vs. 87.0%).
 This result reinforces the advantages of deep residual architectures and transfer learning, especially when labeled data is limited.
-Training Dynamics:
 
-The loss curves indicate that both training and validation losses steadily decrease over epochs, while accuracy increases.
-ResNet‑18 shows a smoother convergence compared to the custom CNN, likely due to its deeper architecture and the benefit of pretraining.
+4. The loss curves indicate that both training and validation losses steadily decrease over epochs, while accuracy increases.
+   
+5. ResNet‑18 shows a smoother convergence compared to the custom CNN, likely due to its deeper architecture and the benefit of pretraining.
 
