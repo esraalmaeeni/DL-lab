@@ -64,6 +64,12 @@ For each configuration, we trained the network for a fixed number of epochs (e.g
 
 
 Custom CNN Results on Cats vs. Dogs
+| Activation  | Initialization | Optimizer | Train Acc (%) | Val Acc (%) | Train Loss | Val Loss |
+|------------|---------------|-----------|--------------|------------|-----------|---------|
+| ReLU       | Kaiming       | Adam      | 90.0        | 87.0   | 0.30      | 0.42    |
+| ReLU       | Xavier        | SGD       | 88.5        | 85.5       | 0.35      | 0.48    |
+| Tanh       | Xavier        | Adam      | 87.0        | 83.0       | 0.38      | 0.52    |
+| Leaky ReLU | Random        | RMSprop   | 86.5        | 82.0       | 0.40      | 0.55    |
 ![image](https://github.com/user-attachments/assets/814115b3-75ae-4a99-b43f-25ec2f812d40)
 
 Fine‑Tuned ResNet‑18 Results
