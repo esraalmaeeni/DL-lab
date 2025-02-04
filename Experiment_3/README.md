@@ -47,6 +47,7 @@ ResNet introduced residual connections, which help in training very deep network
     - Optimizers: SGD, Adam, RMSprop
       
 - ResNet-18 and Transfer Learning
+---
 
 ## 3. Experimental Setup
 For each configuration, we trained the network for a fixed number of epochs (e.g., 10 epochs) and recorded the training and validation loss and accuracy. In parallel, a pretrained ResNet‑18 model was fine‑tuned on the same datasets for comparison.
