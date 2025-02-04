@@ -32,6 +32,7 @@ Optimizers are algorithms that adjust the weights of a network to minimize the l
 ### ResNet (Residual Network):
 ResNet introduced residual connections, which help in training very deep networks by allowing gradients to flow directly through skip connections. ResNet‑18 is a relatively shallow variant that still benefits from these connections. Its significance lies in its ability to train deeper models efficiently and achieve high performance on complex image classification tasks.
 
+---
 
 ## 2. Methodology
 ### 2.1 Data Description
@@ -44,11 +45,13 @@ ResNet introduced residual connections, which help in training very deep network
     - ctivation Functions: ReLU, Tanh, Leaky ReLU
     - Weight Initialization Techniques: Xavier, Kaiming, Random
     - Optimizers: SGD, Adam, RMSprop
-    - 
+      
 - ResNet-18 and Transfer Learning
 
 ## 3. Experimental Setup
 For each configuration, we trained the network for a fixed number of epochs (e.g., 10 epochs) and recorded the training and validation loss and accuracy. In parallel, a pretrained ResNet‑18 model was fine‑tuned on the same datasets for comparison.
+
+--- 
 
 ## 4. Results
 #### Custom CNN Results on CIFAR‑10
@@ -77,7 +80,7 @@ For each configuration, we trained the network for a fixed number of epochs (e.g
 | CIFAR-10     | ResNet-18 | 90.0         | 88.0   | 0.28      | 0.39    |
 | Cats vs. Dogs| ResNet-18 | 92.0         | 89.5   | 0.25      | 0.35    |
 
-
+---
 
 ## 6. Conclusion
 **Custom CNN:**
@@ -86,6 +89,7 @@ For each configuration, we trained the network for a fixed number of epochs (e.g
 2. ReLU combined with Kaiming initialization is well suited since Kaiming is designed to work optimally with ReLU activations, leading to faster convergence and better generalization.
 
  **ResNet‑18 vs. Custom CNN:**
+ 
 3. The fine‑tuned ResNet‑18 model outperformed the custom CNN on both datasets (CIFAR‑10: 88.0% vs. 85.2% and Cats vs. Dogs: 89.5% vs. 87.0%).
 This result reinforces the advantages of deep residual architectures and transfer learning, especially when labeled data is limited.
 
