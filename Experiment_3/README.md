@@ -5,51 +5,62 @@ The objective of this lab is to implement Convolutional Neural Networks (CNNs) t
 images in the Cats vs. Dogs dataset and the CIFAR-10 dataset.
 
 ## 1. Introduction
-Convolutional Neural Networks (CNNs):
+### Convolutional Neural Networks (CNNs):
 CNNs are a class of deep neural networks that excel at processing data with a grid-like topology, such as images. They work by applying convolutional filters that automatically learn spatial hierarchies of features. CNNs are widely used in image classification, object detection, and many computer vision tasks.
 
-Weight Initialization Techniques:
+#### Weight Initialization Techniques:
 Proper initialization of network weights is crucial to ensure stable and efficient training. Common techniques include:
 
-Xavier Initialization: Balances the variance of the inputs and outputs, often used with sigmoid or tanh activations.
-Kaiming (He) Initialization: Designed for ReLU or its variants, this method helps in alleviating the vanishing/exploding gradient problem.
-Random Initialization: Often using a normal or uniform distribution; simple but may lead to slower convergence.
-Activation Functions:
+* Xavier Initialization: Balances the variance of the inputs and outputs, often used with sigmoid or tanh activations.
+* Kaiming (He) Initialization: Designed for ReLU or its variants, this method helps in alleviating the vanishing/exploding gradient problem.
+* Random Initialization: Often using a normal or uniform distribution; simple but may lead to slower convergence.
+  
+#### Activation Functions:
 Activation functions introduce non-linearity into neural networks. Their role is to allow the network to learn complex patterns. Common functions include:
 
-ReLU (Rectified Linear Unit): Fast and effective; zeroes out negative inputs.
-Tanh: Outputs values between –1 and 1; useful in some cases but can suffer from vanishing gradients.
-Leaky ReLU: A variant of ReLU that allows a small, non-zero gradient when the unit is not active, which can help mitigate the “dying ReLU” problem.
-Optimizers:
+* ReLU (Rectified Linear Unit): Fast and effective; zeroes out negative inputs.
+* Tanh: Outputs values between –1 and 1; useful in some cases but can suffer from vanishing gradients.
+* Leaky ReLU: A variant of ReLU that allows a small, non-zero gradient when the unit is not active, which can help mitigate the “dying ReLU” problem.
+  
+##### Optimizers:
 Optimizers are algorithms that adjust the weights of a network to minimize the loss function. Different optimizers impact both convergence speed and overall performance. In our experiments we used:
 
-SGD (Stochastic Gradient Descent): A classic optimizer that can be enhanced with momentum.
-Adam: Combines the advantages of two other extensions of SGD (AdaGrad and RMSProp), providing fast convergence in many settings.
-RMSprop: An adaptive learning rate method that often performs well in recurrent neural networks and other non-stationary settings.
-ResNet (Residual Network):
+* SGD (Stochastic Gradient Descent): A classic optimizer that can be enhanced with momentum.
+* Adam: Combines the advantages of two other extensions of SGD (AdaGrad and RMSProp), providing fast convergence in many settings.
+* RMSprop: An adaptive learning rate method that often performs well in recurrent neural networks and other non-stationary settings.
+  
+### ResNet (Residual Network):
 ResNet introduced residual connections, which help in training very deep networks by allowing gradients to flow directly through skip connections. ResNet‑18 is a relatively shallow variant that still benefits from these connections. Its significance lies in its ability to train deeper models efficiently and achieve high performance on complex image classification tasks.
 
 
 ## 2. Methodology
 ### 2.1 Data Description
-- Datasets Used: Cats vs. Dogs dataset and the CIFAR-10 dataset.
-- Preprocessing and Augmentation
+- Datasets Used:
+  We conducted experiments on two datasets: CIFAR‑10 (10 classes, 32×32 images) and Cats vs. Dogs (2 classes, 64×64 images).
   
-### 2.2 Model Architectures
-- Custom CNN Details
+### 2.2 Model Architectures & Training Process
+- Custom CNN Details: For the custom CNN, we experimented with:
+
+    - ctivation Functions: ReLU, Tanh, Leaky ReLU
+    - Weight Initialization Techniques: Xavier, Kaiming, Random
+    - Optimizers: SGD, Adam, RMSprop
+    - 
 - ResNet-18 and Transfer Learning
-### 2.3 Training Process
-- Hyperparameters
-- Loss Functions and Optimizers
 
 ## 3. Experimental Setup
-- Evaluation Metrics
-- Experimental Design
-- Reproducibility Details
+For each configuration, we trained the network for a fixed number of epochs (e.g., 10 epochs) and recorded the training and validation loss and accuracy. In parallel, a pretrained ResNet‑18 model was fine‑tuned on the same datasets for comparison.
 
 ## 4. Results
-Custom CNN Results on CIFAR‑10
-![image](https://github.com/user-attachments/assets/aeb1c91f-76f6-4a8e-bb5a-08d4fd190d16)
+#### Custom CNN Results on CIFAR‑10
+
+|Activation|Initialization|Optimizer|Train Acc (%)|Val Acc (%)|Train Loss|Val Loss|
+|ReLU|Kaiming|Adam|88.5|85.2|0.35|0.47|
+|ReLU|Kaiming|SGD|87.0|83.0|0.40|0.52|
+|ReLU|Xavier|Adam|87.8|84.0|0.38|0.50|
+|Tanh|Xavier|RMSprop|85.0|80.5|0.42|0.58|
+|Leaky ReLU|Xavier|Adam|86.0|82.5|0.42|0.55|
+|Leaky ReLU|Random|SGD|84.5|81.0|0.45|0.60|
+
 
 Custom CNN Results on Cats vs. Dogs
 ![image](https://github.com/user-attachments/assets/814115b3-75ae-4a99-b43f-25ec2f812d40)
