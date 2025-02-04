@@ -6,6 +6,11 @@ The objective of this lab is to provide a streamlined approach to loading, proce
 ## 1. Introduction
 The dataset consists of handwritten digit images (0-9) and corresponding labels. This implementation enables efficient loading and normalization of the dataset for further machine learning tasks.
 
+#### Neural networks:
+Neural networks are pivotal in identifying complex patterns, solving intricate challenges, and adapting to dynamic environments. Their ability to learn from vast amounts of data is transformative, impacting technologies like natural language processing, self-driving vehicles, and automated decision-making.
+
+Neural networks streamline processes, increase efficiency, and support decision-making across various industries. As a backbone of artificial intelligence, they continue to drive innovation, shaping the future of technology.[source](https://www.geeksforgeeks.org/neural-networks-a-beginners-guide/)
+
 #### Features
 - *Dataset Handling*: Reads MNIST images and labels from raw binary files.
 - *Data Normalization*: Scales pixel values to the range [0,1] for better model performance.
