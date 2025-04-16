@@ -1,29 +1,26 @@
-# English to Spanish Translation using Seq2Seq LSTM
 
-This project implements an English-to-Spanish machine translation system using a Sequence-to-Sequence (Seq2Seq) architecture in PyTorch. It includes both a basic encoder-decoder model and extensions with attention mechanisms.
+We use a subset of 10,000 sentence pairs.  
+Split into:
 
-##  Features
+- 80% Training  
+- 10% Validation  
+- 10% Testing
 
-- Encoder-Decoder architecture with LSTM
-- Word embeddings (trainable)
-- Teacher forcing during training
-- Tokenization, padding, and vocabulary construction
-- BLEU score evaluation
-- Optional support for Bahdanau and Luong attention (to be added)
+## Preprocessing
 
-##  Model Architecture
+- Lowercasing
+- Word tokenization
+- Adding `<sos>` and `<eos>` tokens to Spanish sentences
+- Padding sequences
+- Vocabulary creation with `<pad>` and `<unk>` tokens
 
-###  Part 1: LSTM Encoder-Decoder (without Attention)
-- **Encoder**: LSTM that processes input English sequence
-- **Decoder**: LSTM that generates Spanish translation
-- **Teacher Forcing**: Used to speed up convergence
-- **Loss**: CrossEntropyLoss ignoring `<pad>` tokens
+## Evaluation
 
-###  (Optional Part 2: With Attention)
-- Bahdanau Attention (Additive)
-- Luong Attention (Multiplicative)
+- Evaluated using BLEU score on the test set
+- Sample translations shown for manual inspection
 
-##  Dataset
+## Example Inference
 
-The dataset consists of English-Spanish sentence pairs in a plain text file:
-
+```python
+translate(model, "how are you?")
+# Output: "¿cómo estás?"
